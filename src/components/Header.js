@@ -12,6 +12,7 @@ const Header = () => {
             authDispatch({
                 type: 'LOGOUT'
             })
+            sessionStorage.setItem('uid', '')
             history.push('/')
         }).catch((e) => {
             console.log(e)
@@ -20,7 +21,7 @@ const Header = () => {
 
     return (
         <div>
-            <Link to="/">
+            <Link to="/dashboard">
                 <h1>MyBlog</h1>
             </Link>
             <button onClick={onClick}>Logout</button>

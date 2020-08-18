@@ -7,11 +7,11 @@ import database from '../firebase/firebase'
 
 const PostDashboard = (props) => {
 
-    const { dispatch } = useContext(Context)
+    const { auth, dispatch } = useContext(Context)
 
     useEffect(() => {
         const posts = []
-        database.ref('posts').once('value')
+        database.ref(`users/${auth.uid}/posts`).once('value')
             .then((snapshot) => {
                 snapshot.forEach((childSnapshot) => {
                     posts.push({
@@ -24,7 +24,7 @@ const PostDashboard = (props) => {
                     dispatch({ type: 'POPULATE_POSTS', posts })
                 }
             })
-    }, [dispatch])
+    }, [dispatch, auth.uid])
 
 
     return (

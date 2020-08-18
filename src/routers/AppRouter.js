@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 import Header from '../components/Header'
@@ -12,10 +12,27 @@ export const history = createHistory()
 
 const AppRouter = () => {
 
-    const { auth } = useContext(Context)
+    const { auth, authDispatch } = useContext(Context)
+    let uid = undefined
+    if (auth.uid) {
+        uid = auth.uid
+    }
+    else if (sessionStorage.getItem('uid')) {
+        uid = sessionStorage.getItem('uid')
+    }
+
+    useEffect(() => {
+        if (uid) {
+            authDispatch({
+                type: 'LOGIN',
+                uid
+            })
+        }
+    }, [authDispatch, uid])
+
     return (
         <Router history={history}>
-            {auth.uid ?
+            {uid ?
                 <div>
                     <Header />
                     <Switch>

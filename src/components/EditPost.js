@@ -4,7 +4,7 @@ import { Context } from '../context/context'
 import database from '../firebase/firebase'
 
 const EditPost = (props) => {
-    const { posts, dispatch } = useContext(Context)
+    const { posts, auth, dispatch } = useContext(Context)
     const { history } = props
     const post = posts.find((post) => post.id === props.match.params.id) || ''
 
@@ -14,7 +14,7 @@ const EditPost = (props) => {
             id: props.match.params.id,
             updates: {...post}
         })
-        database.ref(`posts/${props.match.params.id}`).update(post).then(() => {
+        database.ref(`users/${auth.uid}/posts/${props.match.params.id}`).update(post).then(() => {
             history.push('/dashboard')
         })
     }
@@ -24,7 +24,7 @@ const EditPost = (props) => {
             type: 'REMOVE_POST',
             id: props.match.params.id
         })
-        database.ref(`posts/${props.match.params.id}`).remove().then(() => {
+        database.ref(`users/${auth.uid}/posts/${props.match.params.id}`).remove().then(() => {
             history.push('/dashboard')
         })
     }

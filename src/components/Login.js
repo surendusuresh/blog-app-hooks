@@ -6,15 +6,15 @@ import { history } from '../routers/AppRouter'
 const Login = () => {
 
     const { auth, authDispatch } = useContext(Context)
-
+    
     const onClick = () => {
         if (!auth.uid) {
-            console.log("Firing")
             firebase.auth().signInWithPopup(googleAuthProvider).then((result) => {
                 authDispatch({
                     type: 'LOGIN',
                     uid: result.user.uid
                 })
+                sessionStorage.setItem('uid', result.user.uid)
                 history.push('/dashboard')
             }).catch((e) => console.log(e))
         }
