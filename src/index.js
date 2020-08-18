@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import AppRouter from './routers/AppRouter'
+import ContextProvider from './context/context'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ContextProvider>
+        <AppRouter />
+    </ContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
