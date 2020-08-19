@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.form__error {
+    color: white;
+}
+
 .form__input {
     max-width: 40rem;
     padding: $m-size 0;

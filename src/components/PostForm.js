@@ -4,17 +4,24 @@ const PostForm = (props) => {
 
     const [title, setTitle] = useState(props.title || '')
     const [body, setBody] = useState(props.body || '')
+    const [error, setError] = useState('')
 
     const submitPost = (e) => {
         e.preventDefault()
-        props.onSubmit({
-            title,
-            body
-        })
+        if(!title || !body){
+            setError('Please provide a title and body')
+        }
+        else{
+            props.onSubmit({
+                title,
+                body
+            })
+        } 
     }
 
     return (
         <form onSubmit={submitPost} className="form">
+            {error && <p className="form__error">{error}</p>}
             <input
                 type="text"
                 placeholder="Post Title"
