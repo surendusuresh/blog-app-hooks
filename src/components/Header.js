@@ -12,7 +12,7 @@ const Header = () => {
             authDispatch({
                 type: 'LOGOUT'
             })
-            sessionStorage.setItem('uid', '')
+            localStorage.setItem('uid', '')
             history.push('/')
         }).catch((e) => {
             console.log(e)

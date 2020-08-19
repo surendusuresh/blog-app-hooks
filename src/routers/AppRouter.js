@@ -17,8 +17,8 @@ const AppRouter = () => {
     if (auth.uid) {
         uid = auth.uid
     }
-    else if (sessionStorage.getItem('uid')) {
-        uid = sessionStorage.getItem('uid')
+    else if (localStorage.getItem('uid')) {
+        uid = localStorage.getItem('uid')
     }
 
     useEffect(() => {

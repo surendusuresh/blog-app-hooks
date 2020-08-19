@@ -14,7 +14,7 @@ const Login = () => {
                     type: 'LOGIN',
                     uid: result.user.uid
                 })
-                sessionStorage.setItem('uid', result.user.uid)
+                localStorage.setItem('uid', result.user.uid)
                 history.push('/dashboard')
             }).catch((e) => console.log(e))
         }
