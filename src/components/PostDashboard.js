@@ -4,7 +4,6 @@ import { Context } from '../context/context'
 import PostList from './PostList'
 import database from '../firebase/firebase'
 
-
 const PostDashboard = (props) => {
 
     const { auth, dispatch } = useContext(Context)
@@ -26,13 +25,13 @@ const PostDashboard = (props) => {
             })
     }, [dispatch, auth.uid])
 
-
     return (
         <div>
             <PostFilter />
             <PostList />
         </div>
     )
+
 }
 
 export default PostDashboard

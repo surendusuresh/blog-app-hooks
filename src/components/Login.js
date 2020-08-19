@@ -9,6 +9,7 @@ const Login = () => {
     
     const onClick = () => {
         if (!auth.uid) {
+            history.push('/loading')
             firebase.auth().signInWithPopup(googleAuthProvider).then((result) => {
                 authDispatch({
                     type: 'LOGIN',

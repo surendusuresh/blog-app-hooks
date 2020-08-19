@@ -8,6 +8,7 @@ import EditPost from '../components/EditPost'
 import Login from '../components/Login'
 import Footer from '../components/Footer'
 import { Context } from '../context/context'
+import LoadingPage from '../components/LoadingPage'
 
 export const history = createHistory()
 
@@ -45,7 +46,11 @@ const AppRouter = () => {
                 </div>
                 :
                 <div className="login">
-                    <Login />
+                    {history.push('/login')}
+                    <Switch>
+                        <Route path="/login" component={Login} />
+                        <Route path="/loading" component={LoadingPage} />
+                    </Switch>
                     <Footer />
                 </div>
 
