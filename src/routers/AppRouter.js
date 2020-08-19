@@ -6,6 +6,7 @@ import PostDashboard from '../components/PostDashboard'
 import AddPost from '../components/AddPost'
 import EditPost from '../components/EditPost'
 import Login from '../components/Login'
+import Footer from '../components/Footer'
 import { Context } from '../context/context'
 
 export const history = createHistory()
@@ -40,9 +41,14 @@ const AppRouter = () => {
                         <Route path="/create" component={AddPost} />
                         <Route path="/edit/:id" component={EditPost} />
                     </Switch>
+                    <Footer />
                 </div>
                 :
-                <Login />
+                <div className="login">
+                    <Login />
+                    <Footer />
+                </div>
+
             }
         </Router>
 

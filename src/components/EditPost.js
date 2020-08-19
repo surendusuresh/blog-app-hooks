@@ -30,9 +30,10 @@ const EditPost = (props) => {
     }
 
     return (
-        <div>
+        <div className="list__container">
+            <h2 className="page__title">Edit Post</h2>
             <PostForm title={post.title} body={post.body} onSubmit={onSubmit}/>
-            <button onClick={onClick}>Remove</button>
+            <button onClick={onClick} className="button__no-background form__button">Remove</button>
         </div>
     )
 }

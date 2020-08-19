@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import AppRouter from './routers/AppRouter'
 import ContextProvider from './context/context'
+import 'normalize.css'
+import './styles/styles.scss'
 
 
 ReactDOM.render(

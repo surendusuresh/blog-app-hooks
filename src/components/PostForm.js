@@ -14,19 +14,23 @@ const PostForm = (props) => {
     }
 
     return (
-        <form onSubmit={submitPost}>
+        <form onSubmit={submitPost} className="form">
             <input
                 type="text"
                 placeholder="Post Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                className="form__input"
             />
             <textarea
-                placeholder="Post content"
+                placeholder="Post Content"
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
+                className="form__textarea"
             />
-            <button>Save Post</button>
+            <div>
+                <button className="button__no-background form__button">Save Post</button>
+            </div>
         </form>
     )
 

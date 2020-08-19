@@ -22,7 +22,8 @@ const AddPost = (props) => {
     } 
 
     return (
-        <div>
+        <div className="list__container">
+            <h2 className="page__title">Add Post</h2>
             <PostForm onSubmit={onSubmit}/>
         </div>
     )

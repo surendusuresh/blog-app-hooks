@@ -13,12 +13,15 @@ const PostFilter = () => {
     }
     return (
         <div>
-            <input
-                placeholder="Search posts"
-                value={filter}
-                onChange={onChange}
-            />
-            <Link to="/create">Add Post</Link>
+            <div className="container__content filter">
+                <input
+                    placeholder="Search posts"
+                    value={filter}
+                    onChange={onChange}
+                    className="filter__input"
+                />
+                <Link to="/create" className="button__no-background">Add Post</Link>
+            </div>
         </div>
     )
 

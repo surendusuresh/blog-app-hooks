@@ -1,0 +1,19 @@
+.header {
+    margin: $l-size;
+    padding-bottom: $m-size;
+    @media(min-width: $desktop-breakpoint) {
+        margin: $m-size;
+        padding-bottom: $m-size;
+    }
+}
+.header__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.header__title {
+    color: white;
+    text-decoration: none;
+}

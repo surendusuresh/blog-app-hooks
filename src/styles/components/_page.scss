@@ -1,0 +1,7 @@
+.page__title {
+    color: white;
+    text-align: center;
+    @media(min-width: $desktop-breakpoint) {
+        text-align: left;
+    }
+}

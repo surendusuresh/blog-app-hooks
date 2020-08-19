@@ -1,0 +1,12 @@
+.container {
+    margin: 0 auto;
+    padding: 0 $m-size;
+    max-width: 90rem;
+}
+
+.container__content {
+    margin: 0 auto;
+    padding: 0 $m-size;
+    max-width: 70rem;
+    display: flex;
+}

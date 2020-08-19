@@ -21,8 +21,9 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <button onClick={onClick}>Login</button>
+        <div className="login__box">
+            <button className="button" onClick={onClick}>Login</button>
+            <h3 className="login__title">What's on your mind!</h3>
         </div>
     )
 }

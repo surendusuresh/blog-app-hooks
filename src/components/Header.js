@@ -18,13 +18,17 @@ const Header = () => {
             console.log(e)
         })
     }
-
     return (
-        <div>
-            <Link to="/dashboard">
-                <h1>MyBlog</h1>
-            </Link>
-            <button onClick={onClick}>Logout</button>
+        <div className="header">
+            <div className="container">
+                <div className="header__content">
+                    <Link className="header__title" to="/dashboard">
+                        <h1>MyBlog</h1>
+                    </Link>
+                    <button className="button button__no-background" onClick={onClick}>Logout</button>
+                </div>
+            </div>
+
         </div >
     )
 }

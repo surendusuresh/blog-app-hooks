@@ -1,0 +1,25 @@
+.login {
+    align-items: center;
+    background: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url('/images/login.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login__box {
+    background: fade-out(white, .70);
+    border-radius: 3px;
+    padding: $l-size $m-size;
+    text-align: center;
+    width: 30rem;
+}
+
+.login__title {
+    margin: 0 0 $m-size 0;
+    padding-top: $l-size;
+    line-height: 1;
+    font-size: $m-size;
+    font-style: oblique;
+}

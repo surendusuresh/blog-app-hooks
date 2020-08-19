@@ -9,8 +9,11 @@ const PostList = () => {
     const filteredPosts = posts.filter((post) => post.title.toLowerCase().includes(filter.toLowerCase()) || post.body.toLowerCase().includes(filter.toLowerCase()))
 
     return (
-        <div>
-            { filteredPosts.map((post) => <PostListItem key={post.id} {...post} />)}
+        <div className="list__container">
+            <h2 className="page__title">Post Topics</h2>
+            <div>
+                {filteredPosts.map((post) => <PostListItem key={post.id} {...post} />)}
+            </div>
         </div>
     )
 }

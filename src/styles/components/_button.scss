@@ -1,0 +1,24 @@
+.button {
+    background: $grey;
+    color: white;
+    border: none;
+    padding: $s-size;
+    font-size: $font-size-large;
+    font-weight: 300;
+    text-decoration: none;
+    line-height: 1;
+    size: $l-size;
+    &:hover {
+        background: lighten($grey, 20%);
+    }
+}
+
+.button__no-background {
+    @extend .button;
+    background: none;
+    color: white;
+    &:hover {
+        background: none;
+        color: darken(white, 10%)
+    }
+}

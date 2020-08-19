@@ -1,0 +1,11 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    padding: $s-size;
+}
+
+.filter__input {
+    border: none;
+    border-radius: 3px;
+    flex-grow: 1;
+}

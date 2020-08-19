@@ -1,0 +1,14 @@
+.list {
+    text-decoration: none;
+    color: white;
+    font-size: $font-size-small;
+    &:hover {
+        color: grey;
+    }
+}
+
+.list__container {
+    margin: 0 auto;
+    padding: 0 $m-size;
+    max-width: 70rem;
+}
