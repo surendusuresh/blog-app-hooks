@@ -18,7 +18,7 @@ const AppRouter = () => {
 
     return (
         <Router history={history}>
-            { auth.uid || localStorage.getItem('uid') ?
+            { auth.uid ?
                 <div>
                     <Header />
                     <Switch>

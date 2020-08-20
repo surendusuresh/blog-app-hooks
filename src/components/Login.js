@@ -5,21 +5,17 @@ import { history } from '../routers/AppRouter'
 
 const Login = () => {
 
-    const { auth, authDispatch } = useContext(Context)
-    
+    const { authDispatch } = useContext(Context)
+
     const onClick = () => {
-        if (!auth.uid) {
-            history.push('/loading')
-            firebase.auth().signInWithPopup(googleAuthProvider).then((result) => {
-                authDispatch({
-                    type: 'LOGIN',
-                    uid: result.user.uid
-                })
-                localStorage.setItem('uid', result.user.uid)
-                console.log(localStorage.getItem('uid'))
-                history.push('/dashboard')
-            }).catch((e) => console.log(e))
-        }
+        history.push('/loading')
+        firebase.auth().signInWithPopup(googleAuthProvider).then((result) => {
+            authDispatch({
+                type: 'LOGIN',
+                uid: result.user.uid
+            })
+            history.push('/dashboard')
+        }).catch((e) => console.log(e))
     }
 
     return (

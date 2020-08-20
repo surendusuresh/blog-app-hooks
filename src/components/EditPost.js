@@ -5,10 +5,7 @@ import database from '../firebase/firebase'
 import ConfirmationModal from '../components/ConfirmationModal'
 
 const EditPost = (props) => {
-    const { dispatch } = useContext(Context)
-    const uid = localStorage.getItem('uid')
-    const { history } = props
-    const posts = JSON.parse(localStorage.getItem('posts'))
+    const { posts, auth, dispatch } = useContext(Context)
     const post = posts.find((post) => post.id === props.match.params.id) || ''
     const [modalOpen, setModalOpen] = useState(undefined)
 
@@ -18,8 +15,8 @@ const EditPost = (props) => {
             id: props.match.params.id,
             updates: {...post}
         })
-        database.ref(`users/${uid}/posts/${props.match.params.id}`).update(post).then(() => {
-            history.push('/dashboard')
+        database.ref(`users/${auth.uid}/posts/${props.match.params.id}`).update(post).then(() => {
+            props.history.push('/dashboard')
         })
     }
 
@@ -36,8 +33,8 @@ const EditPost = (props) => {
             type: 'REMOVE_POST',
             id: props.match.params.id
         })
-        database.ref(`users/${uid}/posts/${props.match.params.id}`).remove().then(() => {
-            history.push('/dashboard')
+        database.ref(`users/${auth.uid}/posts/${props.match.params.id}`).remove().then(() => {
+            props.history.push('/dashboard')
         })
     }
 

@@ -4,17 +4,16 @@ import { Context } from '../context/context'
 import { firebase } from '../firebase/firebase'
 import { history } from '../routers/AppRouter'
 
-const Header = () => {
+const Header = (props) => {
     const { authDispatch } = useContext(Context)
 
     const onClick = () => {
-        localStorage.removeItem('uid')
-        localStorage.removeItem('posts')
+        localStorage.removeItem('blogapp_posts')
+        localStorage.removeItem('blogapp_auth')
         firebase.auth().signOut().then(() => {
             authDispatch({
                 type: 'LOGOUT'
             })
-            
             history.push('/')
         }).catch((e) => {
             console.log(e)
