@@ -31,7 +31,7 @@ const AppRouter = () => {
                 :
                 <div className="login">
                     <Switch>
-                        <Route path="/" component={Login} />
+                        <Route path="/" component={Login} exact={true}/>
                         <Route path="/loading" component={LoadingPage} />
                     </Switch>
                     <Footer />
