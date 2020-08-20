@@ -8,11 +8,13 @@ const Header = () => {
     const { authDispatch } = useContext(Context)
 
     const onClick = () => {
+        localStorage.removeItem('uid')
+        localStorage.removeItem('posts')
         firebase.auth().signOut().then(() => {
             authDispatch({
                 type: 'LOGOUT'
             })
-            localStorage.setItem('uid', '')
+            
             history.push('/')
         }).catch((e) => {
             console.log(e)

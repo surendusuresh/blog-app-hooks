@@ -5,8 +5,9 @@ import database from '../firebase/firebase'
 
 const AddPost = (props) => {
 
-    const { auth, dispatch } = useContext(Context)
+    const { dispatch } = useContext(Context)
     const { history } = props
+    const uid = localStorage.getItem('uid')
     const onSubmit = ({title, body}) => {
         dispatch({
             type: 'ADD_POST',
@@ -15,7 +16,7 @@ const AddPost = (props) => {
                 body: body
             }
         })
-        database.ref(`users/${auth.uid}/posts`).push({title, body}).then((ref) => {
+        database.ref(`users/${uid}/posts`).push({title, body}).then((ref) => {
             console.log("Successfully pushed data to firebase")
             history.push('/dashboard')
         })

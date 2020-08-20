@@ -6,11 +6,12 @@ import database from '../firebase/firebase'
 
 const PostDashboard = (props) => {
 
-    const { auth, dispatch } = useContext(Context)
+    const { dispatch } = useContext(Context)
 
     useEffect(() => {
         const posts = []
-        database.ref(`users/${auth.uid}/posts`).once('value')
+        const uid = localStorage.getItem('uid')
+        database.ref(`users/${uid}/posts`).once('value')
             .then((snapshot) => {
                 snapshot.forEach((childSnapshot) => {
                     posts.push({
@@ -18,12 +19,13 @@ const PostDashboard = (props) => {
                         ...childSnapshot.val()
                     })
                 })
+                localStorage.setItem('posts', JSON.stringify(posts))
             }).then(() => {
                 if (posts) {
                     dispatch({ type: 'POPULATE_POSTS', posts })
                 }
             })
-    }, [dispatch, auth.uid])
+    }, [dispatch])
 
     return (
         <div>

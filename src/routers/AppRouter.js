@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 import Header from '../components/Header'
@@ -7,34 +7,18 @@ import AddPost from '../components/AddPost'
 import EditPost from '../components/EditPost'
 import Login from '../components/Login'
 import Footer from '../components/Footer'
-import { Context } from '../context/context'
 import LoadingPage from '../components/LoadingPage'
+import { Context } from '../context/context'
 
 export const history = createHistory()
 
 const AppRouter = () => {
 
-    const { auth, authDispatch } = useContext(Context)
-    let uid = undefined
-    if (auth.uid) {
-        uid = auth.uid
-    }
-    else if (localStorage.getItem('uid')) {
-        uid = localStorage.getItem('uid')
-    }
-
-    useEffect(() => {
-        if (uid) {
-            authDispatch({
-                type: 'LOGIN',
-                uid
-            })
-        }
-    }, [authDispatch, uid])
+    const { auth } = useContext(Context)
 
     return (
         <Router history={history}>
-            {uid ?
+            { auth.uid || localStorage.getItem('uid') ?
                 <div>
                     <Header />
                     <Switch>
@@ -46,14 +30,12 @@ const AppRouter = () => {
                 </div>
                 :
                 <div className="login">
-                    {history.push('/login')}
                     <Switch>
-                        <Route path="/login" component={Login} />
+                        <Route path="/" component={Login} />
                         <Route path="/loading" component={LoadingPage} />
                     </Switch>
                     <Footer />
                 </div>
-
             }
         </Router>
 
